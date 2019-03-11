@@ -1,3 +1,8 @@
+/*****************************
+*	Author: Max Ortner
+*	Date:   March 10, 2019
+*/
+
 #pragma once
 
 #ifndef CK2_NO_STDLIB
