@@ -1,0 +1,406 @@
+Amateurish Plotter, 1
+Flamboyant Schemer, 2
+Intricate Webweaver, 3
+Elusive Shadow, 4
+Naive Appeaser, 5
+Gruff Diplomat, 6
+Charismatic Negotiator, 7
+Grey Eminence, 8
+Incompetent Steward, 9
+Competent Steward, 10
+Skilled Steward, 11
+Brilliant Steward, 12
+Incompetent Commander, 13
+Dutiful Commander, 14
+Skilled Commander, 15
+Brilliant Commander, 16
+Stressed, 17
+Depressed, 18
+Lunatic, 19
+Possessed, 20
+Ill, 21
+Pneumonic, 22
+Gonorrhea, 23
+Leper, 24
+Wounded, 25
+Maimed, 26
+Infirm, 27
+Incapable, 28
+Drunkard, 29
+Has Consumption, 30
+Has Slow Fever, 31
+Has Camp Fever, 32
+Has the Plague!, 33
+Has Measles, 34
+Has Smallpox, 35
+Crusader, 36
+Bastard, 37
+Twin, 38
+Legitimized Bastard, 39
+Pregnant, 40
+Excommunicated, 41
+Kinslayer, 42
+Homosexual, 43
+Clubfooted, 44
+Harelip, 45
+Hunchback, 46
+Lisp, 47
+Stutter, 48
+Attractive, 49
+Ugly, 50
+Dwarf, 51
+Genius, 52
+Quick, 53
+Slow, 54
+Imbecile, 55
+Inbred, 56
+Strong, 57
+Weak, 58
+Celibate, 59
+Hedonist, 60
+Scholar, 61
+Gardener, 62
+Mystic, 63
+Torturer, 64
+Duelist, 65
+Hunter, 66
+Poet, 67
+Falconer, 68
+Lustful, 69
+Chaste, 70
+Gluttonous, 71
+Temperate, 72
+Slothful, 75
+Diligent, 76
+Envious, 77
+Kind, 78
+Wroth, 79
+Patient, 80
+Proud, 81
+Humble, 82
+Deceitful, 83
+Honest, 84
+Craven, 85
+Brave, 86
+Shy, 87
+Gregarious, 88
+Ambitious, 89
+Content, 90
+Arbitrary, 91
+Just, 92
+Cynical, 93
+Zealous, 94
+Paranoid, 95
+Trusting, 96
+Cruel, 97
+Light Foot Leader, 98
+Heavy Infantry Leader, 99
+Cavalry Leader, 100
+Inspiring Leader, 101
+Trickster, 102
+Organizer, 103
+Defender, 104
+Unpredictable Leader, 105
+Flanker, 106
+Aggressive Leader, 107
+Scarred, 108
+Eunuch, 109
+Blinded, 110
+Born in the Purple, 111
+Augustus, 112
+Flat Terrain Expert, 113
+Rough Terrain Expert, 114
+Mountain Expert, 115
+Desert Expert, 116
+Holy Warrior, 117
+Unyielding, 118
+Syphilitic, 119
+Bracken, 120
+Blackwood, 121
+Kingsguard, 122
+Elephant., 123
+Tiger, 124
+Giant, 125
+Disinherited, 126
+Has Grey Plague, 127
+Has Greyscale, 128
+Has the Bloody Flux, 129
+Not a Bear, 130
+Has a Pox, 131
+Missing, 132
+Black Brother, 133
+Turncloak, 134
+Deserter, 135
+Fire Obsessed, 136
+Wildling, 137
+Pirate, 138
+Declared Incapable, 139
+The Horn of Winter, 140
+Reaving, 141
+Salt wife, 142
+Poor Fighter, 143
+Trained Fighter, 144
+Skilled Fighter, 145
+Formidable Fighter, 146
+House Customiser, 147
+House Stark, 148
+House Greyjoy, 149
+House Tully, 150
+House Arryn, 151
+House Lannister, 152
+House Tyrell, 153
+House Baratheon, 154
+House Martell, 155
+House Reyne, 156
+House Tarbeck, 157
+House Blackfyre, 158
+House Bolton, 159
+House Mormont, 160
+House Sarwyck, 161
+House Westford, 162
+House Hightower, 163
+House Frey, 164
+House Dayne, 165
+House Farwynd, 166
+Dishonorable, 167
+Dishonorable, 168
+Dishonorable, 169
+Dishonorable, 170
+Dishonorable, 171
+Dishonorable, 172
+Dishonorable, 173
+Dishonorable, 174
+Dishonorable, 175
+Dishonorable, 176
+Dynastic Stain, 177
+Dynastic Stain, 178
+Dynastic Stain, 179
+Dynastic Stain, 180
+Dynastic Stain, 181
+Dynastic Stain, 182
+Dynastic Stain, 183
+Dynastic Stain, 184
+Dynastic Stain, 185
+Dynastic Stain, 186
+Tyrant, 187
+Tyrant, 188
+Tyrant, 189
+Tyrant, 190
+Tyrant, 191
+Tyrant, 192
+Tyrant, 193
+Tyrant, 194
+Tyrant, 195
+Tyrant, 196
+Tyrant, 197
+Tyrant, 198
+Tyrant, 199
+Tyrant, 200
+Tyrant, 201
+Tyrant, 202
+Tyrant, 203
+Tyrant, 204
+Tyrant, 205
+Tyrant, 206
+Dothraki, 207
+Dosh Khaleen, 208
+Owner of a Dragon Egg, 209
+Young Dragon, 210
+Wild Dragon, 211
+Dragon Rider, 212
+Dragon Slayer, 213
+Dragon, 214
+Wounded, 215
+Maimed, 216
+Dragon, 217
+Dragon, 218
+Dragon, 219
+Dragon, 220
+Dragon, 221
+Dragon, 222
+Dragon, 223
+Dragon, 224
+Dragon, 225
+Dragon, 226
+Dragon, 227
+Dragon, 228
+Dragon, 229
+Dragon, 230
+Dragon, 231
+Dragon, 232
+Dragon, 233
+Dragon, 234
+Dragon, 235
+Dragon, 236
+Knight, 237
+Squire, 238
+money_lender, 239
+Maester, 240
+Archmaester, 241
+Incompetent Scientist, 242
+Dutiful Academic, 243
+Expert Scientist, 244
+Mastermind Scholar, 245
+Bodyguard, 246
+Hand of the King, 247
+Kings Justice, 248
+Small Council Member, 249
+Fashionable, 250
+Huge, 251
+Authoritative, 252
+Crippled, 253
+rude name, 254
+Family Person, 255
+Selfish, 256
+Stubborn, 257
+Ruthless, 258
+Honorable, 259
+Leads from the Rear, 260
+Silent Sister, 261
+Red Priest, 262
+Favoured by R'hllor, 263
+Chosen by R'hllor, 264
+Drowned, 265
+Grace, 266
+Warlock, 267
+Shadowbinder, 268
+Bearded Priest, 269
+A Crow, 270
+A Wolf, 271
+Green Dreams, 272
+A Sea Lion, 273
+A Whale, 274
+An Eagle, 275
+A Shadow Cat, 276
+A Boar, 277
+A Snow Bear, 278
+A Direwolf, 279
+Slave, 280
+Slave Trader, 281
+Slave Owner, 282
+Former Slave, 283
+Liberator, 284
+Hunting Accident, 285
+assign_mission_target, 286
+kingsguard_protection_target, 287
+Rebel Leader, 288
+dead_target, 289
+kingsmoot, 290
+Valyrian Steel Sword, 291
+Dawn, 292
+ice name, 293
+longclaw name, 294
+Blackfyre, 295
+Lightbringer, 296
+Brightroar, 297
+Longclaw, 298
+Heartsbane, 299
+Nightfall, 300
+Dark Sister, 301
+Lady Forlorn, 302
+Red Rain, 303
+Vigilance, 304
+Orphan Maker, 305
+house_seaworth, 306
+High Valyrian, 307
+Widowed, 308
+Septon, 309
+Septa, 310
+Fed to a Dragon, 311
+Flayed Alive, 312
+Widow's Wail, 313
+Oathkeeper, 314
+Rainbow guard, 315
+Captain, 316
+A Dog, 317
+A Brown Bear, 318
+Crab's Pincer, 319
+Stillborn, 320
+forbid_marriage, 321
+Stranger's Mercy, 322
+In a Blood Feud, 323
+On a Quest Overseas, 324
+Skinpeeler, 325
+Del Pino, 326
+Goodsword, 327
+anger Mother's Grief, 328
+Black Death, 329
+Glory, 330
+Dornish Kiss, 331
+Kingmaker, 332
+Father's Fury, 333
+Talon, 334
+Stranger's Touch, 335
+Titan's Bite, 336
+Dragonbane, 337
+Jade, 338
+Passion, 339
+Mourning Mace, 340
+Finger Eater, 341
+Rakh Arakh, 342
+Child of Concubine, 343
+Peasant Leader, 344
+Heresiarch, 345
+Berserker, 346
+Reaver, 347
+Ruin, 348
+Civil War, 349
+Disfigured by Greyscale, 350
+Dothraki Domain, 351
+Siege Leader, 352
+On pilgrimage, 353
+Sickly, 354
+Sympathy for Westerosi, 355
+Sympathy for Drowned God, 356
+Sympathy for Eastern, 357
+Sympathy for the Harpy, 358
+Sympathy for Valyrian Faith, 359
+Wicked Priest, 360
+Wicked Caliph, 361
+Unworthy Priest, 362
+bad_priest_tengri Unworthy Priest, 363
+Immoral Priest, 364
+Unworthy Priest, 365
+Battlefield Terrain Master, 366
+Children of the Forest, 367
+Decadent, 368
+Reincarnation of [Reincarnation.GetBestName], 369
+War Elephant Leader, 370
+Jungle Expert, 371
+Blind from Age, 372
+Triarch Statue, 373
+'Dragon', 374
+burned_alive Burned Alive, 375
+Thrown out of the Moon Door, 376
+Crucified, 377
+Snu Snu, 378
+Courtesan, 379
+Former Courtesan, 380
+White Walker, 381
+Winter Wasteland, 382
+Keyholder, 383
+In Hiding, 384
+Disfigured, 385
+Master Seducer, 386
+Master Seductress, 387
+Administrator, 388
+Architect, 389
+Strategist, 390
+Socializer, 391
+Master Schemer, 392
+Theologian, 393
+Game Master, 394
+Truth, 395
+Adopted, 396
+Recently employed a character, 397
+Recently employed a character, 398
+Recently employed a character, 399
+Recently employed a character, 400
+Recently employed a character, 401
+Recently employed a character, 402
+Recently employed a character, 403
+Recently employed a character, 404
+The pillar displays a Direwolf, 405
+The pillar displays a Crow, 406
+The pillar displays an Eagle, 407
+The pillar displays a Dog, 408
