@@ -9,6 +9,13 @@ To install this into your project, you must copy the header file to your project
 ```C++
 #include "ck2Parser.h"
 ```
+If you are using the Game of Thrones mod and what the trait list, just set the new trait list with 
+
+```C++
+ck2::traitCSV = ck2::TraitCSV("traits_agot.csv");
+```
+
+**before** any usage of the functions.
 
 ## Usage
 The library is very easy to use, first you must create a `File` object which loads the `.ck2` save file, then, you must make a `SaveFile` object which parses the data.
