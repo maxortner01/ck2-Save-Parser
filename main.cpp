@@ -9,7 +9,8 @@ int main()
 	
 	ck2::Character c = saveFile.getCharacter(506357);
 	
-	std::cout << c.title() << " " << c.name() << " " << c.nickname() << " - " << c.birthDate() << std::endl;
+	std::cout << c.title() << " " << c.name() << " " << c.dynasty()->name() << " " << c.nickname() << " - " << c.birthDate() << std::endl;
+	std::cout << "Religion: " << c.dynasty()->religion() << std::endl << std::endl;
 	std::cout << "Traits: " << std::endl;
 	
 	for (int i = 0; i < c.traits().size(); i++)
@@ -26,4 +27,5 @@ int main()
 	std::cout << "\n\n" << c.children().size() << ((c.children().size() == 1)?" child.":" children.") << std::endl;
 
 	std::getchar();
+
 }

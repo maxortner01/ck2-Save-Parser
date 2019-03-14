@@ -9,6 +9,7 @@
 	#include <fstream>
 	#include <string>
 	#include <vector>
+#include <iostream>
 #endif
 
 namespace ck2
@@ -179,7 +180,7 @@ namespace ck2
 			{
 				if (line[i] != del) continue;
 
-				r.first = std::string(line.begin(), line.begin() + i);
+				r.first  = std::string(line.begin(), line.begin() + i);
 				r.second = std::string(line.begin() + i + 1, line.end());
 
 				break;
@@ -326,15 +327,86 @@ namespace ck2
 		};
 	};
 
+	struct Entity : Parser
+	{
+		unsigned int ID;
+
+		Dictionary<std::string, std::string> dictionary;
+
+	protected:
+		std::string getStringfromDict(std::string key)
+		{
+			if (!dictionary.at(key)) return std::string("");
+			return remove(*dictionary.at(key), '"');
+		}
+
+		float getFloatFromDict(std::string key)
+		{
+			if (!dictionary.at(key)) return -1.f;
+			return std::stof(*dictionary.at(key));
+		}
+
+		void parseData(std::vector<Pair<int, std::string>> data)
+		{
+			for (Pair<int, std::string> line : data) {
+				StringPair property = getProperty(line.second);
+				dictionary.push(property);
+			}
+		}
+	};
+
 	//
-	// Object representing a Character
+	// Object representing a Title
 	//
-	struct Character : Parser
+	struct Title : public Entity
 	{
 		friend class SaveFile;
 
-		unsigned int ID;
-		Dictionary<std::string, std::string> dictionary;
+		std::string succession()
+		{
+			return getStringfromDict("succession");
+		}
+
+		std::string gender()
+		{
+			return getStringfromDict("gender");
+		}
+
+		unsigned int holderID()
+		{
+			return (int)getFloatFromDict("holder");
+		}
+	};
+
+	//
+	// Object representing a Dynasty
+	//
+	struct Dynasty : public Entity
+	{
+		friend class SaveFile;
+
+		std::string name()
+		{
+			return getStringfromDict("name");
+		}
+
+		std::string culture()
+		{
+			return getStringfromDict("culture");
+		}
+
+		std::string religion()
+		{
+			return getStringfromDict("religion");
+		}
+	};
+
+	//
+	// Object representing a Character
+	//
+	struct Character : public Entity
+	{
+		friend class SaveFile;
 
 		// Functions for getting data
 		std::string name()
@@ -498,6 +570,14 @@ namespace ck2
 			return getFromCharacterList("host");
 		}
 
+		Dynasty* dynasty()
+		{
+			std::string d_str = getStringfromDict("dnt");
+			if (d_str == "") return nullptr;
+
+			return dynastyList->at(std::stoi(d_str));
+		}
+
 		std::vector<Character*> children()
 		{
 			try {
@@ -510,18 +590,6 @@ namespace ck2
 		}
 
 	private:
-		std::string getStringfromDict(std::string key)
-		{
-			if (!dictionary.at(key)) return std::string("");
-			return remove(*dictionary.at(key), '"');
-		}
-
-		float getFloatFromDict(std::string key)
-		{
-			if (!dictionary.at(key)) return -1.f;
-			return std::stof(*dictionary.at(key));
-		}
-
 		Character* getFromCharacterList(std::string key)
 		{
 			try
@@ -536,27 +604,29 @@ namespace ck2
 			}
 		}
 
-		void parseData(std::vector<Pair<int, std::string>> data)
-		{
-			for (Pair<int, std::string> line : data) {
-				StringPair property = getProperty(line.second);
-				dictionary.push(property);
-			}
-		}
-
 		Dictionary<int, Character>* characterList;
 		Dictionary<int, std::vector<Character*>>* childList;
+		Dictionary<int, Dynasty>* dynastyList;
 	};
 
+	//
+	// Object that creates all data for the save file
+	//
 	class SaveFile : Parser
 	{
 		File &file;
 		Dictionary<int, Character> characters;
+		Dictionary<int, Dynasty>   dynasties;
+		
+		//Dictionary<int, std::vector<Title>> titles;
+
 		Dictionary<int, std::vector<Character*>> children;
 
 		typedef enum {
 			DYNASTY,
 			CHARACTERS,
+			PROVINCES,
+			TITLE,
 			AMOUNT
 		} LINES;
 
@@ -569,7 +639,7 @@ namespace ck2
 			{
 				std::string line = file.getData().at(l);
 
-				if (line == "dyn_title=" && key_lines.at(DYNASTY) == 0)
+				if (line == "dynasties=" && key_lines.at(DYNASTY) == 0)
 				{
 					key_lines.at(DYNASTY) = l;
 				}
@@ -578,12 +648,63 @@ namespace ck2
 				{
 					key_lines.at(CHARACTERS) = l;
 				}
+
+				if (line == "provinces=" && key_lines.at(PROVINCES) == 0)
+				{
+					key_lines.at(PROVINCES) = l;
+				}
+
+				if (line == "title=" && key_lines.at(DYNASTY) != 0 && key_lines.at(CHARACTERS) != 0 && key_lines.at(PROVINCES) != 0 && key_lines.at(TITLE) == 0)
+				{
+					key_lines.at(TITLE) = l;
+				}
 			}
 
-			// Parse Characters
+			//Parse Dynasties
 			std::vector<Pair<int, std::string>> data;
 			int lastID = -1;
 			int level = 1;
+			for (int i = key_lines.at(DYNASTY) + 2; level > 0; i++)
+			{
+				std::string line(file.getData().at(i));
+
+				// Check if the dynasty is done
+				if (line.length() > 1 && line.at(line.length() - 1) == '=' && level == 1)
+				{
+					// If its the first person, you've got to pass the ID
+					if (lastID == -1)
+						lastID = std::stoi(std::string(line.begin(), line.begin() + line.length() - 1));
+
+					// If there is no data for some reason, dont add an object
+					if (data.size() == 0) continue;
+
+					Dynasty* dynasty = new Dynasty;
+					dynasty->ID = lastID;
+					dynasty->parseData(data);
+					dynasties.push(Pair<int, Dynasty>(dynasty->ID, *dynasty));
+
+					// Clear the data for the next character
+					data.clear();
+
+					// Begin ID for the next character
+					lastID = std::stoi(std::string(line.begin(), line.begin() + line.length() - 1));
+
+					continue;
+				}
+
+				// If the dynasty continues, determine whether or not to increment
+				// or decrement the current level
+				if (contains(line, '{')) level++;
+				if (contains(line, '}')) level--;
+
+				// Push the current line to the data
+				data.push_back(Pair<int, std::string>(level, line));
+			}
+
+			// Parse Characters
+			data.clear();
+			lastID = -1;
+			level = 1;
 			for (int i = key_lines.at(CHARACTERS) + 2; level > 0; i++)
 			{
 				std::string line(file.getData().at(i));
@@ -606,6 +727,7 @@ namespace ck2
 					// Lazy way of passing global data to the character class
 					character->characterList = &characters;
 					character->childList     = &children;
+					character->dynastyList   = &dynasties;
 
 					// Push the character
 					characters.push(Pair<int, Character>(lastID, *character));
@@ -677,6 +799,7 @@ namespace ck2
 				// Push the current line to the data
 				data.push_back(Pair<int, std::string>(level, line));
 			}
+
 		}
 
 	public:
